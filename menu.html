@@ -7,109 +7,12 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet" />
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root {
-    --pink:#D4537E; --pink-lt:#FBEAF0; --pink-dk:#8C2A4B;
-    --teal:#1A8C6E; --teal-lt:#E1F5EE;
-    --amber:#D97706; --amber-lt:#FAEEDA;
-    --purple:#534AB7; --purple-lt:#EEEDFE;
-    --text:#1A1A2E; --text-s:#5C5C7A; --text-t:#9999BB;
-    --bg:#FAFAF8; --white:#FFFFFF; --border:#E8E8F0;
-    --shadow:0 4px 24px rgba(212,83,126,.12); --r:14px;
-  }
-  body { font-family:'Nunito',sans-serif; background:var(--bg); color:var(--text); }
-  a { text-decoration:none; color:inherit; }
-
-  nav { position:sticky;top:0;z-index:100;background:rgba(250,250,248,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 48px;display:flex;align-items:center;justify-content:space-between;gap:24px;height:64px; }
-  .nav-logo { font-family:'Playfair Display',serif;font-size:22px;color:var(--pink); }
-  .nav-links { display:flex;gap:4px; }
-  .nav-links a { font-size:14px;font-weight:500;padding:6px 14px;border-radius:30px;color:var(--text-s);transition:.2s; }
-  .nav-links a:hover,.nav-links a.active { background:var(--pink-lt);color:var(--pink); }
-  .nav-actions { display:flex;align-items:center;gap:10px; }
-  .btn-login { font-size:13px;font-weight:500;padding:7px 16px;border-radius:30px;color:var(--pink);border:1.5px solid var(--pink); }
-  .btn-cart { font-size:13px;font-weight:500;padding:7px 16px;border-radius:30px;background:var(--pink);color:#fff;position:relative; }
-  .cart-badge { position:absolute;top:-6px;right:-6px;width:18px;height:18px;border-radius:50%;background:var(--amber);color:#fff;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center; }
-
-  /* HERO BANNER */
-  .page-hero { background:linear-gradient(135deg,#FBEAF0 0%,#F0E8FF 100%);padding:40px 48px;display:flex;align-items:center;justify-content:space-between; }
-  .page-hero h1 { font-family:'Playfair Display',serif;font-size:36px;color:var(--text);margin-bottom:6px; }
-  .page-hero p { font-size:14px;color:var(--text-s); }
-  .page-hero-icon { font-size:80px;opacity:.6; }
-
-  /* LAYOUT */
-  .menu-layout { display:grid;grid-template-columns:240px 1fr;gap:24px;padding:32px 48px;align-items:start; }
-
-  /* SIDEBAR */
-  .sidebar { position:sticky;top:80px; }
-  .sidebar-card { background:var(--white);border:1.5px solid var(--border);border-radius:var(--r);padding:20px;margin-bottom:14px; }
-  .sidebar-title { font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-t);margin-bottom:12px; }
-  .cat-list { display:flex;flex-direction:column;gap:4px; }
-  .cat-item { display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;cursor:pointer;font-size:13px;font-weight:500;color:var(--text-s);transition:.2s;border:1.5px solid transparent; }
-  .cat-item:hover { background:var(--pink-lt);color:var(--pink); }
-  .cat-item.active { background:var(--pink-lt);color:var(--pink);border-color:var(--pink); }
-  .cat-item .ci { font-size:18px; }
-  .price-options { display:flex;flex-direction:column;gap:8px; }
-  .price-options label { display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text-s);cursor:pointer; }
-  .check-opts { display:flex;flex-direction:column;gap:8px; }
-  .check-opts label { display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text-s);cursor:pointer; }
-
-  /* CART MINI */
-  .cart-mini { background:linear-gradient(135deg,var(--pink-lt),#fff);border:1.5px solid #ED93B1;border-radius:var(--r);padding:16px; }
-  .cart-mini-title { font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--pink);margin-bottom:10px; }
-  .cart-mini-item { display:flex;justify-content:space-between;font-size:12px;padding:4px 0;color:var(--text-s);border-bottom:1px dashed var(--border); }
-  .cart-total { display:flex;justify-content:space-between;align-items:center;margin-top:10px; }
-  .cart-total-price { font-size:18px;font-weight:700;color:var(--pink); }
-  .btn-checkout { display:block;width:100%;margin-top:10px;padding:10px;background:var(--pink);color:#fff;border:none;border-radius:10px;font-size:13px;font-weight:700;cursor:pointer;text-align:center;transition:.2s; }
-  .btn-checkout:hover { background:var(--pink-dk); }
-
-  /* MAIN CONTENT */
-  .search-sort { display:flex;gap:10px;align-items:center;margin-bottom:16px; }
-  .search-wrap { position:relative;flex:1; }
-  .search-wrap input { width:100%;padding:10px 16px 10px 40px;border:1.5px solid var(--border);border-radius:10px;font-size:14px;font-family:inherit;background:var(--white);transition:.2s; }
-  .search-wrap input:focus { outline:none;border-color:var(--pink); }
-  .search-icon { position:absolute;left:13px;top:50%;transform:translateY(-50%);font-size:16px;color:var(--text-t); }
-  .sort-sel { padding:10px 14px;border:1.5px solid var(--border);border-radius:10px;font-size:13px;font-family:inherit;background:var(--white);color:var(--text);cursor:pointer; }
-  .sort-sel:focus { outline:none;border-color:var(--pink); }
-
-  .filter-chips { display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px; }
-  .chip { display:inline-flex;align-items:center;gap:5px;padding:5px 14px;border-radius:30px;font-size:12px;font-weight:600;border:1.5px solid var(--border);color:var(--text-s);cursor:pointer;background:var(--white);transition:.2s; }
-  .chip:hover,.chip.on { background:var(--pink-lt);border-color:var(--pink);color:var(--pink); }
-
-  .result-info { font-size:13px;color:var(--text-t);margin-bottom:16px; }
-
-  /* PRODUCT GRID */
-  .prod-grid { display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px;margin-bottom:28px; }
-  .prod-card { background:var(--white);border:1.5px solid var(--border);border-radius:var(--r);overflow:hidden;cursor:pointer;transition:.25s; }
-  .prod-card:hover { border-color:var(--pink);box-shadow:var(--shadow);transform:translateY(-4px); }
-  .prod-thumb { height:120px;display:flex;align-items:center;justify-content:center;font-size:56px;position:relative; }
-  .prod-badge { position:absolute;top:8px;left:8px;font-size:10px;font-weight:700;padding:2px 8px;border-radius:20px; }
-  .badge-hot { background:#FEE2E2;color:#B91C1C; }
-  .badge-new { background:var(--purple-lt);color:var(--purple); }
-  .badge-sale { background:var(--amber-lt);color:var(--amber); }
-  .prod-body { padding:12px; }
-  .prod-name { font-size:13px;font-weight:700;margin-bottom:3px; }
-  .prod-desc { font-size:11px;color:var(--text-t);margin-bottom:8px;line-height:1.4; }
-  .prod-foot { display:flex;align-items:center;justify-content:space-between; }
-  .prod-price { font-size:16px;font-weight:700;color:var(--pink); }
-  .prod-stars { font-size:11px;color:var(--text-t); }
-  .prod-stars span { color:#F59E0B; }
-  .add-btn { display:flex;align-items:center;justify-content:center;width:30px;height:30px;background:var(--pink);color:#fff;border-radius:50%;border:none;font-size:18px;cursor:pointer;transition:.2s;flex-shrink:0; }
-  .add-btn:hover { background:var(--pink-dk); }
-
-  /* PAGINATION */
-  .pagination { display:flex;justify-content:center;gap:6px; }
-  .page-btn { width:36px;height:36px;border-radius:8px;border:1.5px solid var(--border);background:var(--white);font-size:13px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.2s; }
-  .page-btn:hover,.page-btn.active { background:var(--pink);border-color:var(--pink);color:#fff; }
-
-  footer { background:var(--text);color:rgba(255,255,255,.6);text-align:center;padding:20px;font-size:13px;margin-top:48px; }
-  footer span { color:var(--pink); }
-</style>
+<link rel="stylesheet" href="style.css" />
 </head>
-<body>
+<body class="page-menu">
 
 <nav>
-  <div class="nav-logo">🧋 BobaViet</div>
+  <div class="nav-logo">BobaViet</div>
   <div class="nav-links">
     <a href="index.html">Trang chủ</a>
     <a href="menu.html" class="active">Thực đơn</a>
@@ -127,7 +30,7 @@
     <h1>📋 Thực Đơn BobaViet</h1>
     <p>Hơn 50 món – Trà sữa · Đồ ăn vặt · Bánh ngọt · Nước ép<br>Giao hàng miễn phí đơn từ 100.000đ</p>
   </div>
-  <div class="page-hero-icon">🧋</div>
+  <div class="page-hero-icon"></div>
 </div>
 
 <div class="menu-layout">

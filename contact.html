@@ -7,113 +7,12 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet" />
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root {
-    --pink:#D4537E; --pink-lt:#FBEAF0; --pink-dk:#8C2A4B;
-    --teal:#1A8C6E; --teal-lt:#E1F5EE;
-    --amber:#D97706; --amber-lt:#FAEEDA;
-    --purple:#534AB7; --purple-lt:#EEEDFE;
-    --text:#1A1A2E; --text-s:#5C5C7A; --text-t:#9999BB;
-    --bg:#FAFAF8; --white:#FFFFFF; --border:#E8E8F0;
-    --shadow:0 4px 24px rgba(212,83,126,.12); --r:14px;
-  }
-  body { font-family:'Nunito',sans-serif; background:var(--bg); color:var(--text); }
-  a { text-decoration:none; color:inherit; }
-
-  /* NAV */
-  nav { position:sticky;top:0;z-index:100;background:rgba(250,250,248,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 48px;display:flex;align-items:center;justify-content:space-between;height:64px; }
-  .nav-logo { font-family:'Playfair Display',serif;font-size:22px;color:var(--pink); }
-  .nav-links { display:flex;gap:4px; }
-  .nav-links a { font-size:14px;font-weight:500;padding:6px 14px;border-radius:30px;color:var(--text-s);transition:.2s; }
-  .nav-links a:hover,.nav-links a.active { background:var(--pink-lt);color:var(--pink); }
-  .nav-actions { display:flex;gap:10px; }
-  .btn-login { font-size:13px;font-weight:500;padding:7px 16px;border-radius:30px;color:var(--pink);border:1.5px solid var(--pink); }
-  .btn-cart { font-size:13px;font-weight:500;padding:7px 16px;border-radius:30px;background:var(--pink);color:#fff;position:relative; }
-  .cart-badge { position:absolute;top:-6px;right:-6px;width:18px;height:18px;border-radius:50%;background:var(--amber);color:#fff;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center; }
-
-  /* PAGE HERO */
-  .page-hero { background:linear-gradient(135deg,var(--pink-lt) 0%,#F0F8FF 50%,var(--teal-lt) 100%);padding:48px;text-align:center; }
-  .page-hero .tag { display:inline-block;background:var(--white);border:1px solid var(--pink-lt);border-radius:30px;padding:5px 16px;font-size:12px;font-weight:700;color:var(--pink);letter-spacing:1px;text-transform:uppercase;margin-bottom:14px; }
-  .page-hero h1 { font-family:'Playfair Display',serif;font-size:38px;color:var(--text);margin-bottom:10px; }
-  .page-hero p { font-size:15px;color:var(--text-s);max-width:500px;margin:0 auto; }
-
-  /* LAYOUT */
-  .contact-layout { display:grid;grid-template-columns:1fr 1.5fr;gap:24px;padding:40px 48px;max-width:1100px;margin:0 auto;align-items:start; }
-
-  /* INFO CARD */
-  .card { background:var(--white);border:1.5px solid var(--border);border-radius:var(--r);padding:24px;margin-bottom:16px; }
-  .card-title { font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-t);margin-bottom:18px; }
-
-  .info-item { display:flex;align-items:flex-start;gap:14px;padding:14px 0;border-bottom:1px solid var(--border); }
-  .info-item:last-child { border-bottom:none;padding-bottom:0; }
-  .info-icon { width:42px;height:42px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0; }
-  .info-label { font-size:11px;color:var(--text-t);margin-bottom:2px; }
-  .info-val { font-size:14px;font-weight:700;color:var(--text); }
-  .info-sub { font-size:12px;color:var(--text-s);margin-top:2px; }
-
-  /* SOCIAL */
-  .social-grid { display:flex;flex-direction:column;gap:8px; }
-  .social-btn { display:flex;align-items:center;gap:12px;padding:12px 14px;border:1.5px solid var(--border);border-radius:12px;cursor:pointer;transition:.2s; }
-  .social-btn:hover { border-color:var(--pink);background:var(--pink-lt); }
-  .social-icon { font-size:22px; }
-  .social-name { font-size:13px;font-weight:600; }
-  .social-handle { font-size:12px;color:var(--text-t); }
-
-  /* BRANCHES */
-  .branch-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:8px; }
-  .branch-card { background:var(--bg);border:1.5px solid var(--border);border-radius:10px;padding:12px;text-align:center;cursor:pointer;transition:.2s; }
-  .branch-card:hover { border-color:var(--pink);background:var(--pink-lt); }
-  .branch-num { font-size:11px;color:var(--text-t);margin-bottom:4px; }
-  .branch-name { font-size:13px;font-weight:700; }
-  .branch-addr { font-size:11px;color:var(--text-s);margin-top:2px; }
-
-  /* FORM */
-  .form-grid { display:grid;grid-template-columns:1fr 1fr;gap:12px; }
-  .field { margin-bottom:12px; }
-  .field label { display:block;font-size:12px;font-weight:600;color:var(--text-s);margin-bottom:5px; }
-  .input-wrap { position:relative; }
-  .input-wrap .ico { position:absolute;left:12px;top:50%;transform:translateY(-50%);font-size:16px; }
-  .input-wrap input, .input-wrap select {
-    width:100%;padding:10px 14px 10px 38px;
-    border:1.5px solid var(--border);border-radius:10px;
-    font-size:14px;font-family:inherit;background:var(--white);color:var(--text);transition:.2s;
-  }
-  .input-wrap input:focus,.input-wrap select:focus { outline:none;border-color:var(--pink);box-shadow:0 0 0 3px var(--pink-lt); }
-  textarea { width:100%;padding:12px 14px;border:1.5px solid var(--border);border-radius:10px;font-size:14px;font-family:inherit;resize:vertical;min-height:110px;color:var(--text);transition:.2s; }
-  textarea:focus { outline:none;border-color:var(--pink);box-shadow:0 0 0 3px var(--pink-lt); }
-
-  .btn-submit { width:100%;padding:13px;background:var(--pink);color:#fff;border:none;border-radius:12px;font-size:15px;font-weight:700;cursor:pointer;transition:.2s;margin-top:4px; }
-  .btn-submit:hover { background:var(--pink-dk);transform:translateY(-2px);box-shadow:0 4px 20px rgba(212,83,126,.35); }
-
-  .secure-note { text-align:center;font-size:12px;color:var(--text-t);margin-top:8px; }
-
-  .success-box { display:none;background:var(--teal-lt);border:1.5px solid #97C459;border-radius:12px;padding:14px 16px;margin-top:12px; }
-  .success-box strong { display:block;font-size:14px;color:var(--teal);margin-bottom:4px; }
-  .success-box p { font-size:12px;color:#3B6D11; }
-
-  /* MAP */
-  .map-box { background:linear-gradient(135deg,var(--bg),var(--teal-lt));border:1.5px solid var(--border);border-radius:12px;height:160px;display:flex;align-items:center;justify-content:center;margin-bottom:14px;position:relative;overflow:hidden; }
-  .map-placeholder { text-align:center; }
-  .map-placeholder .map-icon { font-size:36px;margin-bottom:8px; }
-  .map-placeholder p { font-size:13px;font-weight:600;color:var(--text-s); }
-  .map-placeholder span { font-size:11px;color:var(--text-t); }
-  .map-pin { position:absolute;font-size:28px;animation:bounce 2s ease-in-out infinite; }
-  @keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
-
-  footer { background:var(--text);color:rgba(255,255,255,.6);padding:32px 48px 20px; }
-  .footer-inner { display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;flex-wrap:wrap;gap:12px; }
-  .footer-logo { font-family:'Playfair Display',serif;font-size:20px;color:var(--pink); }
-  .footer-links { display:flex;gap:20px; }
-  .footer-links a { font-size:13px;color:rgba(255,255,255,.5);transition:.2s; }
-  .footer-links a:hover { color:var(--pink); }
-  .footer-bottom { border-top:1px solid rgba(255,255,255,.1);padding-top:16px;text-align:center;font-size:12px;color:rgba(255,255,255,.35); }
-</style>
+<link rel="stylesheet" href="style.css" />
 </head>
-<body>
+<body class="page-contact">
 
 <nav>
-  <div class="nav-logo">🧋 BobaViet</div>
+  <div class="nav-logo">BobaViet</div>
   <div class="nav-links">
     <a href="index.html">Trang chủ</a>
     <a href="menu.html">Thực đơn</a>

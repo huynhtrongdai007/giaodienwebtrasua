@@ -7,113 +7,12 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet" />
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root {
-    --pink:#D4537E; --pink-lt:#FBEAF0; --pink-dk:#8C2A4B;
-    --teal:#1A8C6E; --teal-lt:#EAF3DE;
-    --amber:#D97706;
-    --purple:#534AB7; --purple-lt:#EEEDFE;
-    --text:#1A1A2E; --text-s:#5C5C7A; --text-t:#9999BB;
-    --bg:#FAFAF8; --white:#FFFFFF; --border:#E8E8F0;
-    --shadow:0 8px 40px rgba(212,83,126,.15); --r:16px;
-  }
-  body { font-family:'Nunito',sans-serif; background:var(--bg); color:var(--text); min-height:100vh; display:flex; flex-direction:column; }
-  a { text-decoration:none; color:inherit; }
-
-  /* NAV */
-  nav { background:var(--white);border-bottom:1px solid var(--border);padding:0 48px;display:flex;align-items:center;justify-content:space-between;height:64px;flex-shrink:0; }
-  .nav-logo { font-family:'Playfair Display',serif;font-size:22px;color:var(--pink); }
-  .nav-links { display:flex;gap:4px; }
-  .nav-links a { font-size:14px;font-weight:500;padding:6px 14px;border-radius:30px;color:var(--text-s);transition:.2s; }
-  .nav-links a:hover { background:var(--pink-lt);color:var(--pink); }
-
-  /* MAIN */
-  .main { flex:1;display:flex;align-items:center;justify-content:center;padding:40px 24px; }
-
-  /* CARD WRAPPER */
-  .auth-card { display:grid;grid-template-columns:1fr 1fr;width:100%;max-width:900px;min-height:560px;border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow);border:1.5px solid var(--border); }
-
-  /* LEFT PANEL */
-  .left-panel { background:linear-gradient(145deg, #FF8FAB 0%, var(--pink) 40%, #A0396E 100%);padding:40px;display:flex;flex-direction:column;justify-content:center;color:#fff;position:relative;overflow:hidden; }
-  .left-panel::before { content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;border-radius:50%;background:rgba(255,255,255,.08); }
-  .left-panel::after { content:'';position:absolute;bottom:-40px;left:-40px;width:150px;height:150px;border-radius:50%;background:rgba(255,255,255,.06); }
-  .left-brand { font-family:'Playfair Display',serif;font-size:28px;margin-bottom:8px;position:relative;z-index:1; }
-  .left-tagline { font-size:14px;opacity:.85;margin-bottom:28px;position:relative;z-index:1;line-height:1.6; }
-  .benefit-list { display:flex;flex-direction:column;gap:12px;position:relative;z-index:1;margin-bottom:28px; }
-  .benefit-item { display:flex;align-items:center;gap:12px;font-size:13px; }
-  .benefit-dot { width:22px;height:22px;border-radius:50%;background:rgba(255,255,255,.25);display:flex;align-items:center;justify-content:center;font-size:11px;flex-shrink:0; }
-  .promo-gift { background:rgba(255,255,255,.15);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.3);border-radius:12px;padding:14px 16px;position:relative;z-index:1; }
-  .promo-gift-title { font-size:13px;font-weight:700;margin-bottom:4px; }
-  .promo-gift-desc { font-size:12px;opacity:.85;line-height:1.5; }
-  .deco-emoji { position:absolute;bottom:20px;right:20px;font-size:80px;opacity:.15;z-index:0; }
-
-  /* RIGHT PANEL */
-  .right-panel { background:var(--white);padding:40px;display:flex;flex-direction:column;justify-content:center; }
-  .tabs { display:flex;border-bottom:2px solid var(--border);margin-bottom:24px; }
-  .tab { flex:1;padding:11px;text-align:center;font-size:14px;font-weight:700;cursor:pointer;color:var(--text-t);border-bottom:2px solid transparent;margin-bottom:-2px;transition:.2s; }
-  .tab.active { color:var(--pink);border-bottom-color:var(--pink); }
-  .panel { display:none; }
-  .panel.active { display:block; }
-
-  /* FORM FIELDS */
-  .field { margin-bottom:13px; }
-  .field label { display:block;font-size:12px;font-weight:600;color:var(--text-s);margin-bottom:5px; }
-  .input-wrap { position:relative; }
-  .input-wrap .ico { position:absolute;left:13px;top:50%;transform:translateY(-50%);font-size:16px; }
-  .input-wrap input {
-    width:100%;padding:11px 14px 11px 40px;
-    border:1.5px solid var(--border);border-radius:10px;
-    font-size:14px;font-family:inherit;background:var(--bg);color:var(--text);transition:.2s;
-  }
-  .input-wrap input:focus { outline:none;border-color:var(--pink);background:var(--white);box-shadow:0 0 0 3px var(--pink-lt); }
-  .field-row { display:grid;grid-template-columns:1fr 1fr;gap:10px; }
-  .forgot-link { display:block;text-align:right;font-size:12px;font-weight:600;color:var(--pink);margin-top:-8px;margin-bottom:12px;cursor:pointer; }
-  .forgot-link:hover { text-decoration:underline; }
-  .remember-row { display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text-s);margin-bottom:14px;cursor:pointer; }
-
-  /* PASSWORD STRENGTH */
-  .strength-wrap { margin-top:5px; }
-  .strength-bars { display:flex;gap:4px;margin-bottom:4px; }
-  .sbar { flex:1;height:4px;border-radius:2px;background:var(--border);transition:.3s; }
-  .strength-label { font-size:11px;color:var(--text-t); }
-
-  /* SUBMIT BTN */
-  .btn-submit { width:100%;padding:12px;background:var(--pink);color:#fff;border:none;border-radius:12px;font-size:15px;font-weight:700;cursor:pointer;transition:.2s;margin-bottom:12px; }
-  .btn-submit:hover { background:var(--pink-dk);transform:translateY(-2px);box-shadow:0 4px 20px rgba(212,83,126,.35); }
-
-  /* DIVIDER */
-  .divider { display:flex;align-items:center;gap:12px;margin:14px 0;color:var(--text-t);font-size:12px; }
-  .divider::before,.divider::after { content:'';flex:1;height:1px;background:var(--border); }
-
-  /* SOCIAL BTNS */
-  .social-btn { display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:10px;border:1.5px solid var(--border);border-radius:10px;font-size:13px;font-weight:600;cursor:pointer;background:var(--white);color:var(--text);transition:.2s;margin-bottom:8px; }
-  .social-btn:hover { border-color:var(--pink);background:var(--pink-lt); }
-  .social-icon { font-size:18px; }
-
-  /* SWITCH LINK */
-  .switch-link { text-align:center;font-size:13px;color:var(--text-t);margin-top:4px; }
-  .switch-link span { color:var(--pink);font-weight:700;cursor:pointer; }
-  .switch-link span:hover { text-decoration:underline; }
-
-  /* SUCCESS / ERROR */
-  .alert-box { border-radius:10px;padding:11px 14px;margin-bottom:12px;font-size:13px;display:none; }
-  .alert-success { background:var(--teal-lt);border:1.5px solid #97C459;color:var(--teal); }
-  .alert-error { background:#FEE2E2;border:1.5px solid #FCA5A5;color:#B91C1C; }
-
-  /* TERMS */
-  .terms-row { display:flex;align-items:flex-start;gap:8px;font-size:12px;color:var(--text-s);margin-bottom:12px;cursor:pointer;line-height:1.5; }
-  .terms-row input { margin-top:2px;flex-shrink:0; }
-  .terms-row a { color:var(--pink);font-weight:600; }
-
-  footer { background:var(--text);color:rgba(255,255,255,.5);text-align:center;padding:16px;font-size:12px;flex-shrink:0; }
-  footer span { color:var(--pink); }
-</style>
+<link rel="stylesheet" href="style.css" />
 </head>
-<body>
+<body class="page-login">
 
 <nav>
-  <div class="nav-logo">🧋 BobaViet</div>
+  <div class="nav-logo">BobaViet</div>
   <div class="nav-links">
     <a href="index.html">Trang chủ</a>
     <a href="menu.html">Thực đơn</a>
