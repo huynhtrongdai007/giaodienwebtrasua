@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Liên Hệ – BobaViet</title>
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Liên Hệ – BobaViet</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body class="page-contact">
+<body>
 
+<!-- ── NAVBAR ─────────────────────────────── -->
 <nav>
-  <div class="nav-logo">BobaViet</div>
+  <div class="nav-logo">🧋 BobaViet</div>
   <div class="nav-links">
     <a href="index.html">Trang chủ</a>
     <a href="menu.html">Thực đơn</a>
@@ -21,20 +22,25 @@
   </div>
   <div class="nav-actions">
     <a href="login.html" class="btn-login">Đăng nhập</a>
-    <a href="order.html" class="btn-cart">🛒 Giỏ hàng <span class="cart-badge">3</span></a>
+    <a href="order.html" class="btn-cart">
+      🛒 Giỏ hàng <span class="cart-badge">0</span>
+    </a>
   </div>
 </nav>
 
-<!-- HERO -->
-<div class="page-hero">
+<!-- ── PAGE HERO ──────────────────────────── -->
+<div class="page-hero-center">
   <div class="tag">Liên hệ</div>
   <h1>Chúng tôi luôn sẵn sàng!</h1>
-  <p>Có thắc mắc hay góp ý? Hãy gửi tin nhắn – BobaViet luôn lắng nghe và phản hồi trong 24 giờ.</p>
+  <p>Có thắc mắc hay góp ý? Gửi tin nhắn – BobaViet luôn lắng nghe và phản hồi trong 24 giờ.</p>
 </div>
 
+<!-- ── LAYOUT ─────────────────────────────── -->
 <div class="contact-layout">
-  <!-- LEFT: INFO -->
+
+  <!-- CỘT TRÁI: Thông tin -->
   <div>
+
     <div class="card">
       <div class="card-title">Thông tin cửa hàng</div>
       <div class="info-item">
@@ -74,26 +80,17 @@
     <div class="card">
       <div class="card-title">Mạng xã hội</div>
       <div class="social-grid">
-        <div class="social-btn">
+        <div class="social-card">
           <div class="social-icon">📘</div>
-          <div>
-            <div class="social-name">Facebook</div>
-            <div class="social-handle">BobaViet Official</div>
-          </div>
+          <div><div class="social-name">Facebook</div><div class="social-handle">BobaViet Official</div></div>
         </div>
-        <div class="social-btn">
+        <div class="social-card">
           <div class="social-icon">📷</div>
-          <div>
-            <div class="social-name">Instagram</div>
-            <div class="social-handle">@bobaviet.vn</div>
-          </div>
+          <div><div class="social-name">Instagram</div><div class="social-handle">@bobaviet.vn</div></div>
         </div>
-        <div class="social-btn">
+        <div class="social-card">
           <div class="social-icon">💬</div>
-          <div>
-            <div class="social-name">Zalo OA</div>
-            <div class="social-handle">0901 234 567</div>
-          </div>
+          <div><div class="social-name">Zalo OA</div><div class="social-handle">0901 234 567</div></div>
         </div>
       </div>
     </div>
@@ -105,7 +102,7 @@
         <div class="map-placeholder">
           <div class="map-icon">🗺️</div>
           <p>123 Lê Lợi, Quận 1, TP.HCM</p>
-          <span>[ Nhúng Google Maps iframe tại đây ]</span>
+          <span>Click để mở Google Maps</span>
         </div>
       </div>
       <div class="branch-grid">
@@ -126,40 +123,45 @@
         </div>
       </div>
     </div>
+
   </div>
 
-  <!-- RIGHT: FORM -->
+  <!-- CỘT PHẢI: Form + FAQ -->
   <div>
+
     <div class="card">
       <div class="card-title">Gửi tin nhắn cho chúng tôi</div>
-      <div class="form-grid">
+
+      <div class="field-row">
         <div class="field">
           <label>Họ và tên *</label>
           <div class="input-wrap">
             <span class="ico">👤</span>
-            <input type="text" placeholder="Nguyễn Văn A" />
+            <input type="text" id="contact-name" placeholder="Nguyễn Văn A" />
           </div>
         </div>
         <div class="field">
           <label>Số điện thoại</label>
           <div class="input-wrap">
             <span class="ico">📞</span>
-            <input type="text" placeholder="0901 234 567" />
+            <input type="text" id="contact-phone" placeholder="0901 234 567" />
           </div>
         </div>
       </div>
+
       <div class="field">
         <label>Email *</label>
         <div class="input-wrap">
           <span class="ico">✉️</span>
-          <input type="email" placeholder="email@example.com" />
+          <input type="email" id="contact-email" placeholder="email@example.com" />
         </div>
       </div>
+
       <div class="field">
         <label>Chủ đề</label>
         <div class="input-wrap">
           <span class="ico">📋</span>
-          <select>
+          <select id="contact-topic">
             <option>Hỏi về sản phẩm / thực đơn</option>
             <option>Khiếu nại đơn hàng</option>
             <option>Hợp tác / nhượng quyền</option>
@@ -168,49 +170,71 @@
           </select>
         </div>
       </div>
+
       <div class="field">
         <label>Nội dung tin nhắn *</label>
-        <textarea placeholder="Nhập nội dung bạn muốn gửi đến BobaViet..."></textarea>
+        <textarea id="contact-content" placeholder="Nhập nội dung bạn muốn gửi đến BobaViet..."></textarea>
       </div>
+
       <button class="btn-submit" onclick="sendMessage()">📨 Gửi tin nhắn</button>
       <div class="secure-note">🔒 Thông tin của bạn được bảo mật tuyệt đối</div>
 
-      <div class="success-box" id="success-box">
-        <strong>✅ Gửi thành công!</strong>
-        <p>Cảm ơn bạn đã liên hệ. Đội ngũ BobaViet sẽ phản hồi trong vòng 24 giờ.</p>
+      <div class="alert-box alert-success" id="success-box" style="margin-top:12px;">
+        <strong>✅ Gửi thành công!</strong><br>
+        Cảm ơn bạn đã liên hệ. Đội ngũ BobaViet sẽ phản hồi trong vòng 24 giờ.
       </div>
     </div>
 
     <!-- FAQ -->
     <div class="card">
       <div class="card-title">Câu hỏi thường gặp</div>
-      <div id="faq-list">
-        <div class="faq-item" style="border-bottom:1px solid var(--border);padding:12px 0;cursor:pointer;" onclick="toggleFaq(this)">
-          <div style="display:flex;justify-content:space-between;align-items:center;">
-            <span style="font-size:14px;font-weight:600;">🚗 Thời gian giao hàng là bao lâu?</span>
-            <span class="faq-arrow" style="font-size:18px;transition:.2s;">▾</span>
-          </div>
-          <div class="faq-answer" style="display:none;font-size:13px;color:var(--text-s);margin-top:8px;line-height:1.6;">Thông thường 30–45 phút tùy khu vực. Giờ cao điểm có thể lâu hơn. Chúng tôi sẽ thông báo qua SMS.</div>
+
+      <div class="faq-item" onclick="toggleFaq(this)" style="border-bottom:1px solid var(--border);padding:12px 0;cursor:pointer;">
+        <div class="faq-header" style="display:flex;justify-content:space-between;align-items:center;">
+          <span style="font-size:14px;font-weight:600;">🚗 Thời gian giao hàng là bao lâu?</span>
+          <span class="faq-arrow" style="font-size:18px;transition:.2s;">▾</span>
         </div>
-        <div class="faq-item" style="border-bottom:1px solid var(--border);padding:12px 0;cursor:pointer;" onclick="toggleFaq(this)">
-          <div style="display:flex;justify-content:space-between;align-items:center;">
-            <span style="font-size:14px;font-weight:600;">🆓 Khi nào được miễn phí giao hàng?</span>
-            <span class="faq-arrow" style="font-size:18px;transition:.2s;">▾</span>
-          </div>
-          <div class="faq-answer" style="display:none;font-size:13px;color:var(--text-s);margin-top:8px;line-height:1.6;">Đơn hàng từ 100.000đ trở lên được miễn phí giao hàng trong bán kính 5km từ cửa hàng.</div>
-        </div>
-        <div class="faq-item" style="padding:12px 0;cursor:pointer;" onclick="toggleFaq(this)">
-          <div style="display:flex;justify-content:space-between;align-items:center;">
-            <span style="font-size:14px;font-weight:600;">🔄 Chính sách hoàn tiền như thế nào?</span>
-            <span class="faq-arrow" style="font-size:18px;transition:.2s;">▾</span>
-          </div>
-          <div class="faq-answer" style="display:none;font-size:13px;color:var(--text-s);margin-top:8px;line-height:1.6;">Hoàn tiền 100% nếu sản phẩm không đúng yêu cầu hoặc chất lượng kém. Liên hệ hotline trong 30 phút nhận hàng.</div>
+        <div class="faq-answer" style="display:none;font-size:13px;color:var(--text-s);margin-top:8px;line-height:1.6;">
+          Thông thường 30–45 phút tùy khu vực. Giờ cao điểm có thể lâu hơn. Chúng tôi sẽ thông báo qua SMS.
         </div>
       </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)" style="border-bottom:1px solid var(--border);padding:12px 0;cursor:pointer;">
+        <div class="faq-header" style="display:flex;justify-content:space-between;align-items:center;">
+          <span style="font-size:14px;font-weight:600;">🆓 Khi nào được miễn phí giao hàng?</span>
+          <span class="faq-arrow" style="font-size:18px;transition:.2s;">▾</span>
+        </div>
+        <div class="faq-answer" style="display:none;font-size:13px;color:var(--text-s);margin-top:8px;line-height:1.6;">
+          Đơn hàng từ 100.000đ trở lên được miễn phí giao hàng trong bán kính 5km từ cửa hàng.
+        </div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)" style="border-bottom:1px solid var(--border);padding:12px 0;cursor:pointer;">
+        <div class="faq-header" style="display:flex;justify-content:space-between;align-items:center;">
+          <span style="font-size:14px;font-weight:600;">🔄 Chính sách hoàn tiền như thế nào?</span>
+          <span class="faq-arrow" style="font-size:18px;transition:.2s;">▾</span>
+        </div>
+        <div class="faq-answer" style="display:none;font-size:13px;color:var(--text-s);margin-top:8px;line-height:1.6;">
+          Hoàn tiền 100% nếu sản phẩm không đúng yêu cầu hoặc chất lượng kém. Liên hệ hotline trong 30 phút nhận hàng.
+        </div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)" style="padding:12px 0;cursor:pointer;">
+        <div class="faq-header" style="display:flex;justify-content:space-between;align-items:center;">
+          <span style="font-size:14px;font-weight:600;">🎁 Có chương trình thành viên không?</span>
+          <span class="faq-arrow" style="font-size:18px;transition:.2s;">▾</span>
+        </div>
+        <div class="faq-answer" style="display:none;font-size:13px;color:var(--text-s);margin-top:8px;line-height:1.6;">
+          Có! Đăng ký tài khoản để tích điểm và đổi thưởng. Mỗi 10.000đ chi tiêu = 1 điểm. 100 điểm = 1 ly miễn phí.
+        </div>
+      </div>
+
     </div>
+
   </div>
 </div>
 
+<!-- ── FOOTER ─────────────────────────────── -->
 <footer>
   <div class="footer-inner">
     <div class="footer-logo">🧋 BobaViet</div>
@@ -230,19 +254,6 @@
   <div class="footer-bottom">© 2025 BobaViet · Thiết kế với ❤️ tại Sài Gòn</div>
 </footer>
 
-<script>
-  function sendMessage() {
-    const box = document.getElementById('success-box');
-    box.style.display = 'block';
-    setTimeout(() => { box.style.display = 'none'; }, 5000);
-  }
-  function toggleFaq(item) {
-    const answer = item.querySelector('.faq-answer');
-    const arrow = item.querySelector('.faq-arrow');
-    const open = answer.style.display === 'block';
-    answer.style.display = open ? 'none' : 'block';
-    arrow.style.transform = open ? 'rotate(0deg)' : 'rotate(180deg)';
-  }
-</script>
+<script src="app.js"></script>
 </body>
 </html>

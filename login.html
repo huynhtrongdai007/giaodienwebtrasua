@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Đăng Nhập / Đăng Ký – BobaViet</title>
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Đăng Nhập / Đăng Ký – BobaViet</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body class="page-login">
+<body class="login-page">
 
+<!-- ── NAVBAR ─────────────────────────────── -->
 <nav>
-  <div class="nav-logo">BobaViet</div>
+  <div class="nav-logo">🧋 BobaViet</div>
   <div class="nav-links">
     <a href="index.html">Trang chủ</a>
     <a href="menu.html">Thực đơn</a>
@@ -21,44 +22,52 @@
   </div>
 </nav>
 
-<div class="main">
+<!-- ── AUTH CARD ──────────────────────────── -->
+<div class="auth-main">
   <div class="auth-card">
-    <!-- LEFT -->
+
+    <!-- CỘT TRÁI: Giới thiệu -->
     <div class="left-panel">
       <div class="left-brand">🧋 BobaViet</div>
       <div class="left-tagline">Chào mừng! Đăng nhập để tận hưởng trải nghiệm đặt hàng tốt nhất.</div>
+
       <div class="benefit-list">
         <div class="benefit-item"><div class="benefit-dot">✓</div><span>Đặt hàng nhanh, lưu địa chỉ yêu thích</span></div>
         <div class="benefit-item"><div class="benefit-dot">✓</div><span>Tích điểm đổi thưởng mỗi đơn hàng</span></div>
         <div class="benefit-item"><div class="benefit-dot">✓</div><span>Nhận voucher sinh nhật đặc biệt</span></div>
         <div class="benefit-item"><div class="benefit-dot">✓</div><span>Theo dõi đơn hàng theo thời gian thực</span></div>
       </div>
+
       <div class="promo-gift">
         <div class="promo-gift-title">🎁 Ưu đãi đăng ký mới</div>
         <div class="promo-gift-desc">Tặng ngay <strong>1 ly trà sữa miễn phí</strong> cho đơn hàng đầu tiên khi tạo tài khoản!</div>
       </div>
+
       <div class="deco-emoji">🧋</div>
     </div>
 
-    <!-- RIGHT -->
+    <!-- CỘT PHẢI: Form -->
     <div class="right-panel">
+
+      <!-- Tabs -->
       <div class="tabs">
-        <div class="tab active" id="tab-login" onclick="switchTab('login')">Đăng nhập</div>
-        <div class="tab" id="tab-register" onclick="switchTab('register')">Đăng ký</div>
+        <div class="tab active" id="tab-login"    onclick="switchTab('login')">Đăng nhập</div>
+        <div class="tab"        id="tab-register" onclick="switchTab('register')">Đăng ký</div>
       </div>
 
-      <!-- LOGIN PANEL -->
+      <!-- ── PANEL ĐĂNG NHẬP ── -->
       <div class="panel active" id="panel-login">
         <div class="alert-box alert-success" id="login-success">✅ Đăng nhập thành công! Đang chuyển trang...</div>
-        <div class="alert-box alert-error" id="login-error">❌ Sai email hoặc mật khẩu. Vui lòng thử lại!</div>
+        <div class="alert-box alert-error"   id="login-error">❌ Sai thông tin đăng nhập. Vui lòng thử lại!</div>
 
         <div class="field">
           <label>Email hoặc số điện thoại *</label>
           <div class="input-wrap">
             <span class="ico">✉️</span>
-            <input type="text" id="login-email" placeholder="email@example.com hoặc 0901..." />
+            <input type="text" id="login-email" placeholder="email@example.com" />
           </div>
         </div>
+
         <div class="field">
           <label>Mật khẩu *</label>
           <div class="input-wrap">
@@ -66,43 +75,76 @@
             <input type="password" id="login-pw" placeholder="Nhập mật khẩu..." />
           </div>
         </div>
-        <div class="forgot-link" onclick="alert('Link đặt lại mật khẩu đã được gửi vào email!')">Quên mật khẩu?</div>
-        <label class="remember-row"><input type="checkbox" /> Ghi nhớ đăng nhập trên thiết bị này</label>
+
+        <div class="forgot-link" onclick="forgotPassword()">Quên mật khẩu?</div>
+
+        <label class="remember-row">
+          <input type="checkbox" /> Ghi nhớ đăng nhập trên thiết bị này
+        </label>
+
         <button class="btn-submit" onclick="doLogin()">🔓 Đăng nhập</button>
 
         <div class="divider">hoặc tiếp tục với</div>
-        <button class="social-btn"><span class="social-icon">🟢</span> Tiếp tục với Google</button>
-        <button class="social-btn"><span class="social-icon">📘</span> Tiếp tục với Facebook</button>
+        <button class="social-login-btn">
+          <span style="font-size:18px;">🟢</span> Tiếp tục với Google
+        </button>
+        <button class="social-login-btn">
+          <span style="font-size:18px;">📘</span> Tiếp tục với Facebook
+        </button>
 
-        <div class="switch-link">Chưa có tài khoản? <span onclick="switchTab('register')">Đăng ký ngay</span></div>
+        <div class="switch-link">
+          Chưa có tài khoản? <span onclick="switchTab('register')">Đăng ký ngay</span>
+        </div>
       </div>
 
-      <!-- REGISTER PANEL -->
+      <!-- ── PANEL ĐĂNG KÝ ── -->
       <div class="panel" id="panel-register">
-        <div class="alert-box alert-success" id="register-success">✅ Đăng ký thành công! Kiểm tra email để xác nhận tài khoản.</div>
+        <div class="alert-box alert-success" id="register-success">
+          ✅ Đăng ký thành công! Kiểm tra email để xác nhận tài khoản.
+        </div>
 
         <div class="field-row">
-          <div class="field" style="margin-bottom:0">
+          <div class="field" style="margin-bottom:0;">
             <label>Họ *</label>
-            <div class="input-wrap"><span class="ico">👤</span><input type="text" placeholder="Nguyễn" /></div>
+            <div class="input-wrap">
+              <span class="ico">👤</span>
+              <input type="text" id="reg-firstname" placeholder="Nguyễn" />
+            </div>
           </div>
-          <div class="field" style="margin-bottom:0">
+          <div class="field" style="margin-bottom:0;">
             <label>Tên *</label>
-            <div class="input-wrap"><span class="ico">👤</span><input type="text" placeholder="Văn A" /></div>
+            <div class="input-wrap">
+              <span class="ico">👤</span>
+              <input type="text" id="reg-lastname" placeholder="Văn A" />
+            </div>
           </div>
         </div>
         <br>
+
         <div class="field">
           <label>Email *</label>
-          <div class="input-wrap"><span class="ico">✉️</span><input type="email" placeholder="email@example.com" /></div>
+          <div class="input-wrap">
+            <span class="ico">✉️</span>
+            <input type="email" id="reg-email" placeholder="email@example.com" />
+          </div>
         </div>
+
         <div class="field">
           <label>Số điện thoại *</label>
-          <div class="input-wrap"><span class="ico">📞</span><input type="text" placeholder="0901 234 567" /></div>
+          <div class="input-wrap">
+            <span class="ico">📞</span>
+            <input type="text" id="reg-phone" placeholder="0901 234 567" />
+          </div>
         </div>
+
         <div class="field">
           <label>Mật khẩu *</label>
-          <div class="input-wrap"><span class="ico">🔒</span><input type="password" id="reg-pw" placeholder="Tối thiểu 8 ký tự" oninput="checkPwStrength(this.value)" /></div>
+          <div class="input-wrap">
+            <span class="ico">🔒</span>
+            <input type="password" id="reg-pw" placeholder="Tối thiểu 8 ký tự"
+                   oninput="checkPwStrength(this.value)" />
+          </div>
+          <!-- Thanh đo độ mạnh -->
           <div class="strength-wrap">
             <div class="strength-bars">
               <div class="sbar" id="sb1"></div>
@@ -113,65 +155,38 @@
             <div class="strength-label" id="strength-lbl">Nhập mật khẩu để kiểm tra độ mạnh</div>
           </div>
         </div>
+
         <div class="field">
           <label>Xác nhận mật khẩu *</label>
-          <div class="input-wrap"><span class="ico">🔒</span><input type="password" placeholder="Nhập lại mật khẩu" /></div>
+          <div class="input-wrap">
+            <span class="ico">🔒</span>
+            <input type="password" id="reg-pw-confirm" placeholder="Nhập lại mật khẩu" />
+          </div>
         </div>
+
         <label class="terms-row">
-          <input type="checkbox" />
+          <input type="checkbox" id="reg-terms" />
           Tôi đồng ý với <a href="#">điều khoản dịch vụ</a> và <a href="#">chính sách bảo mật</a> của BobaViet
         </label>
+
         <button class="btn-submit" onclick="doRegister()">🎉 Tạo tài khoản</button>
 
-        <div class="switch-link">Đã có tài khoản? <span onclick="switchTab('login')">Đăng nhập</span></div>
+        <div class="switch-link">
+          Đã có tài khoản? <span onclick="switchTab('login')">Đăng nhập</span>
+        </div>
       </div>
+
     </div>
   </div>
 </div>
 
-<footer><span>🧋 BobaViet</span> · © 2025 · Bảo mật thông tin người dùng</footer>
+<!-- ── FOOTER ─────────────────────────────── -->
+<footer>
+  <div class="footer-simple">
+    <span>🧋 BobaViet</span> · © 2025 · Bảo mật thông tin người dùng
+  </div>
+</footer>
 
-<script>
-  function switchTab(tab) {
-    document.getElementById('panel-login').classList.toggle('active', tab === 'login');
-    document.getElementById('panel-register').classList.toggle('active', tab === 'register');
-    document.getElementById('tab-login').classList.toggle('active', tab === 'login');
-    document.getElementById('tab-register').classList.toggle('active', tab === 'register');
-  }
-
-  function showAlert(id, duration = 3000) {
-    const el = document.getElementById(id);
-    el.style.display = 'block';
-    setTimeout(() => { el.style.display = 'none'; }, duration);
-  }
-
-  function doLogin() {
-    const email = document.getElementById('login-email').value.trim();
-    const pw = document.getElementById('login-pw').value.trim();
-    if (!email || !pw) { showAlert('login-error'); return; }
-    showAlert('login-success', 3000);
-  }
-
-  function doRegister() {
-    showAlert('register-success', 4000);
-  }
-
-  function checkPwStrength(val) {
-    let score = 0;
-    if (val.length >= 8) score++;
-    if (/[A-Z]/.test(val)) score++;
-    if (/[0-9]/.test(val)) score++;
-    if (/[^A-Za-z0-9]/.test(val)) score++;
-    const colors = ['#EF4444', '#F59E0B', '#3B82F6', '#10B981'];
-    const labels = ['Rất yếu', 'Trung bình', 'Khá mạnh', 'Rất mạnh'];
-    for (let i = 1; i <= 4; i++) {
-      const bar = document.getElementById('sb' + i);
-      bar.style.background = i <= score ? colors[score - 1] : 'var(--border)';
-    }
-    const lbl = document.getElementById('strength-lbl');
-    lbl.textContent = val.length ? labels[score - 1] || 'Rất yếu' : 'Nhập mật khẩu để kiểm tra độ mạnh';
-    lbl.style.color = val.length ? colors[score - 1] : 'var(--text-t)';
-  }
-</script>
+<script src="app.js"></script>
 </body>
 </html>

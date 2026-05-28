@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>BobaViet – Trà Sữa & Đồ Ăn Vặt</title>
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BobaViet – Trà Sữa & Đồ Ăn Vặt</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body class="page-index">
+<body>
 
-<!-- NAV -->
+<!-- ── NAVBAR ─────────────────────────────── -->
 <nav>
-  <div class="nav-logo">BobaViet</div>
+  <div class="nav-logo">🧋 BobaViet</div>
   <div class="nav-links">
     <a href="index.html" class="active">Trang chủ</a>
     <a href="menu.html">Thực đơn</a>
@@ -22,11 +22,13 @@
   </div>
   <div class="nav-actions">
     <a href="login.html" class="btn-login">Đăng nhập</a>
-    <a href="order.html" class="btn-cart">🛒 Giỏ hàng <span class="cart-badge">3</span></a>
+    <a href="order.html" class="btn-cart">
+      🛒 Giỏ hàng <span class="cart-badge">0</span>
+    </a>
   </div>
 </nav>
 
-<!-- HERO -->
+<!-- ── HERO ───────────────────────────────── -->
 <section class="hero">
   <div class="hero-content">
     <div class="hero-badge">🔥 Ưu đãi hôm nay – Miễn phí ship đơn từ 100k</div>
@@ -34,7 +36,7 @@
     <p>Giao tận nơi trong 30 phút. Nguyên liệu tươi mỗi ngày. Hơn 50 món để lựa chọn!</p>
     <div class="hero-btns">
       <a href="order.html" class="btn-primary">🛒 Đặt hàng ngay</a>
-      <a href="menu.html" class="btn-outline">📋 Xem thực đơn</a>
+      <a href="menu.html"  class="btn-outline">📋 Xem thực đơn</a>
     </div>
     <div class="hero-stats">
       <div class="stat-item"><div class="stat-num">10K+</div><div class="stat-lbl">Khách hàng tin dùng</div></div>
@@ -42,91 +44,48 @@
       <div class="stat-item"><div class="stat-num">4.9⭐</div><div class="stat-lbl">Đánh giá trung bình</div></div>
     </div>
   </div>
-  <div class="hero-visual"></div>
+  <div class="hero-visual">🧋</div>
 </section>
 
-<!-- CATEGORIES -->
+<!-- ── DANH MỤC ───────────────────────────── -->
 <section class="section cats">
   <div class="section-header">
     <span class="section-tag">Danh mục</span>
     <h2 class="section-title">Chọn theo sở thích</h2>
   </div>
   <div class="cat-grid">
-    <div class="cat-card active"><div class="cat-icon">🍽️</div><div class="cat-name">Tất cả</div></div>
-    <div class="cat-card"><div class="cat-icon">🧋</div><div class="cat-name">Trà sữa</div></div>
-    <div class="cat-card"><div class="cat-icon">🍵</div><div class="cat-name">Trà trái cây</div></div>
-    <div class="cat-card"><div class="cat-icon">☕</div><div class="cat-name">Cà phê</div></div>
-    <div class="cat-card"><div class="cat-icon">🧃</div><div class="cat-name">Nước ép</div></div>
-    <div class="cat-card"><div class="cat-icon">🍟</div><div class="cat-name">Đồ ăn vặt</div></div>
-    <div class="cat-card"><div class="cat-icon">🍰</div><div class="cat-name">Bánh ngọt</div></div>
+    <div class="cat-card active" data-cat="all">  <div class="cat-icon">🍽️</div><div class="cat-name">Tất cả</div></div>
+    <div class="cat-card" data-cat="tra-sua">      <div class="cat-icon">🧋</div><div class="cat-name">Trà sữa</div></div>
+    <div class="cat-card" data-cat="tra-trai">     <div class="cat-icon">🍵</div><div class="cat-name">Trà trái cây</div></div>
+    <div class="cat-card" data-cat="ca-phe">       <div class="cat-icon">☕</div><div class="cat-name">Cà phê</div></div>
+    <div class="cat-card" data-cat="nuoc-ep">      <div class="cat-icon">🧃</div><div class="cat-name">Nước ép</div></div>
+    <div class="cat-card" data-cat="an-vat">       <div class="cat-icon">🍟</div><div class="cat-name">Đồ ăn vặt</div></div>
+    <div class="cat-card" data-cat="banh">         <div class="cat-icon">🍰</div><div class="cat-name">Bánh ngọt</div></div>
   </div>
 </section>
 
-<!-- PRODUCTS -->
+<!-- ── SẢN PHẨM NỔI BẬT ──────────────────── -->
 <section class="section" style="background:var(--bg);">
   <div class="section-header">
     <span class="section-tag">Nổi bật</span>
     <h2 class="section-title">Món bán chạy nhất</h2>
     <p class="section-sub">Những món được yêu thích nhất tại BobaViet</p>
   </div>
-  <div class="prod-grid">
-    <div class="prod-card">
-      <div class="prod-thumb" style="background:#FBEAF0;"><span>🧋</span><span class="prod-badge badge-hot">Hot 🔥</span></div>
-      <div class="prod-body">
-        <div class="prod-name">Trà Sữa Trân Châu</div>
-        <div class="prod-desc">Trân châu đen, sữa tươi, trà đen thơm</div>
-        <div class="prod-footer">
-          <div><div class="prod-price">35.000đ</div><div class="prod-stars"><span>★★★★★</span> (128)</div></div>
-          <button class="add-btn" onclick="alert('Đã thêm vào giỏ hàng!')">+</button>
-        </div>
-      </div>
-    </div>
-    <div class="prod-card">
-      <div class="prod-thumb" style="background:#E1F5EE;"><span>🍵</span><span class="prod-badge badge-new">Mới ✨</span></div>
-      <div class="prod-body">
-        <div class="prod-name">Trà Đào Cam Sả</div>
-        <div class="prod-desc">Đào tươi, cam vắt, sả thơm mát</div>
-        <div class="prod-footer">
-          <div><div class="prod-price">40.000đ</div><div class="prod-stars"><span>★★★★☆</span> (84)</div></div>
-          <button class="add-btn" onclick="alert('Đã thêm vào giỏ hàng!')">+</button>
-        </div>
-      </div>
-    </div>
-    <div class="prod-card">
-      <div class="prod-thumb" style="background:#FAEEDA;"><span>☕</span><span class="prod-badge badge-hot">Hot 🔥</span></div>
-      <div class="prod-body">
-        <div class="prod-name">Cà Phê Sữa Đá</div>
-        <div class="prod-desc">Robusta, sữa đặc, đá viên</div>
-        <div class="prod-footer">
-          <div><div class="prod-price">30.000đ</div><div class="prod-stars"><span>★★★★★</span> (210)</div></div>
-          <button class="add-btn" onclick="alert('Đã thêm vào giỏ hàng!')">+</button>
-        </div>
-      </div>
-    </div>
-    <div class="prod-card">
-      <div class="prod-thumb" style="background:#EEEDFE;"><span>🍟</span><span class="prod-badge badge-sale">-20% 🏷️</span></div>
-      <div class="prod-body">
-        <div class="prod-name">Khoai Tây Chiên</div>
-        <div class="prod-desc">Giòn rụm, muối phô mai, sốt tương cà</div>
-        <div class="prod-footer">
-          <div><div class="prod-price">20.000đ</div><div class="prod-stars"><span>★★★★☆</span> (97)</div></div>
-          <button class="add-btn" onclick="alert('Đã thêm vào giỏ hàng!')">+</button>
-        </div>
-      </div>
-    </div>
+  <div class="prod-grid" id="home-prod-grid">
+    <!-- Được render bởi app.js -->
   </div>
-  <div style="text-align:center; margin-top:32px;">
+  <div style="text-align:center;margin-top:32px;">
     <a href="menu.html" class="btn-primary" style="display:inline-flex;">Xem toàn bộ thực đơn →</a>
   </div>
 </section>
 
-<!-- PROMO BANNER -->
+<!-- ── BANNER KHUYẾN MÃI ──────────────────── -->
 <section class="section promo">
   <div class="promo-inner">
     <div class="promo-text">
       <h2>🎉 Mua 2 Tặng 1 Hôm Nay!</h2>
-      <p>Áp dụng cho tất cả trà sữa size L. Chỉ còn hôm nay thôi nhé!</p>
-      <a href="order.html" class="btn-white" style="margin-top:16px; display:inline-block;">Đặt ngay</a>
+      <p>Áp dụng cho tất cả trà sữa size L. Hết ngay lúc <strong id="countdown" style="color:#FFD700;">23:59:59</strong>!</p>
+      <a href="order.html" class="btn-white" style="margin-top:16px;display:inline-block;">Đặt ngay</a>
     </div>
     <div class="promo-code">
       <div class="code">BOBA20</div>
@@ -135,7 +94,7 @@
   </div>
 </section>
 
-<!-- REVIEWS -->
+<!-- ── ĐÁNH GIÁ KHÁCH HÀNG ───────────────── -->
 <section class="section reviews-bg">
   <div class="section-header">
     <span class="section-tag">Đánh giá</span>
@@ -143,30 +102,39 @@
   </div>
   <div class="reviews-grid">
     <div class="review-card">
-      <div class="review-header"><div class="avatar" style="background:#FBEAF0;color:#D4537E;">A</div><div><div class="review-name">Anh Minh</div><div class="review-stars">★★★★★</div></div></div>
+      <div class="review-header">
+        <div class="avatar" style="background:#FBEAF0;color:#D4537E;">A</div>
+        <div><div class="review-name">Anh Minh</div><div class="review-stars">★★★★★</div></div>
+      </div>
       <div class="review-text">"Trà sữa ngon lắm, giao hàng siêu nhanh, đóng gói cẩn thận. Sẽ ủng hộ dài dài!"</div>
       <span class="review-tag">Trà Sữa Trân Châu</span>
     </div>
     <div class="review-card">
-      <div class="review-header"><div class="avatar" style="background:#E1F5EE;color:#1A8C6E;">L</div><div><div class="review-name">Linh Nguyễn</div><div class="review-stars">★★★★★</div></div></div>
+      <div class="review-header">
+        <div class="avatar" style="background:#E1F5EE;color:#1A8C6E;">L</div>
+        <div><div class="review-name">Linh Nguyễn</div><div class="review-stars">★★★★★</div></div>
+      </div>
       <div class="review-text">"Đồ ăn vặt đa dạng, giá hợp lý, nhân viên nhiệt tình. Mình là fan ruột rồi!"</div>
       <span class="review-tag">Khoai Tây Chiên</span>
     </div>
     <div class="review-card">
-      <div class="review-header"><div class="avatar" style="background:#EEEDFE;color:#534AB7;">T</div><div><div class="review-name">Thu Hà</div><div class="review-stars">★★★★☆</div></div></div>
+      <div class="review-header">
+        <div class="avatar" style="background:#EEEDFE;color:#534AB7;">T</div>
+        <div><div class="review-name">Thu Hà</div><div class="review-stars">★★★★☆</div></div>
+      </div>
       <div class="review-text">"Trà đào cam sả cực kỳ thơm và mát. Mùa hè mà uống ly này là hết mệt luôn!"</div>
       <span class="review-tag">Trà Đào Cam Sả</span>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
+<!-- ── FOOTER ─────────────────────────────── -->
 <footer>
   <div class="footer-grid">
     <div>
-      <div class="footer-logo">BobaViet</div>
+      <div class="footer-logo">🧋 BobaViet</div>
       <p class="footer-desc">Trà sữa tươi ngon & đồ ăn vặt đỉnh cao. Giao hàng nhanh trong 30 phút. Phục vụ tận tâm mỗi ngày.</p>
-      <div class="social-row" style="margin-top:16px;">
+      <div class="social-row">
         <a href="#" class="social-btn">📘</a>
         <a href="#" class="social-btn">📷</a>
         <a href="#" class="social-btn">💬</a>
@@ -200,14 +168,6 @@
   </div>
 </footer>
 
-<script>
-  // Category filter
-  document.querySelectorAll('.cat-card').forEach(card => {
-    card.addEventListener('click', () => {
-      document.querySelectorAll('.cat-card').forEach(c => c.classList.remove('active'));
-      card.classList.add('active');
-    });
-  });
-</script>
+<script src="app.js"></script>
 </body>
 </html>

@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Thực Đơn – BobaViet</title>
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thực Đơn – BobaViet</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body class="page-menu">
+<body>
 
+<!-- ── NAVBAR ─────────────────────────────── -->
 <nav>
-  <div class="nav-logo">BobaViet</div>
+  <div class="nav-logo">🧋 BobaViet</div>
   <div class="nav-links">
     <a href="index.html">Trang chủ</a>
     <a href="menu.html" class="active">Thực đơn</a>
@@ -21,45 +22,54 @@
   </div>
   <div class="nav-actions">
     <a href="login.html" class="btn-login">Đăng nhập</a>
-    <a href="order.html" class="btn-cart">🛒 Giỏ hàng <span class="cart-badge">3</span></a>
+    <a href="order.html" class="btn-cart">
+      🛒 Giỏ hàng <span class="cart-badge">0</span>
+    </a>
   </div>
 </nav>
 
+<!-- ── PAGE HERO ──────────────────────────── -->
 <div class="page-hero">
   <div>
     <h1>📋 Thực Đơn BobaViet</h1>
     <p>Hơn 50 món – Trà sữa · Đồ ăn vặt · Bánh ngọt · Nước ép<br>Giao hàng miễn phí đơn từ 100.000đ</p>
   </div>
-  <div class="page-hero-icon"></div>
+  <div class="page-hero-icon">🧋</div>
 </div>
 
+<!-- ── LAYOUT: SIDEBAR + MAIN ─────────────── -->
 <div class="menu-layout">
+
   <!-- SIDEBAR -->
   <aside class="sidebar">
+
+    <!-- Danh mục -->
     <div class="sidebar-card">
       <div class="sidebar-title">Danh mục</div>
       <div class="cat-list">
-        <div class="cat-item active"><span class="ci">🍽️</span> Tất cả món</div>
-        <div class="cat-item"><span class="ci">🧋</span> Trà sữa</div>
-        <div class="cat-item"><span class="ci">🍵</span> Trà trái cây</div>
-        <div class="cat-item"><span class="ci">☕</span> Cà phê</div>
-        <div class="cat-item"><span class="ci">🧃</span> Nước ép</div>
-        <div class="cat-item"><span class="ci">🍟</span> Đồ ăn vặt</div>
-        <div class="cat-item"><span class="ci">🍰</span> Bánh ngọt</div>
-        <div class="cat-item"><span class="ci">🔥</span> Khuyến mãi</div>
+        <div class="cat-item active" data-cat="all">    <span class="ci">🍽️</span> Tất cả món</div>
+        <div class="cat-item" data-cat="tra-sua">       <span class="ci">🧋</span> Trà sữa</div>
+        <div class="cat-item" data-cat="tra-trai">      <span class="ci">🍵</span> Trà trái cây</div>
+        <div class="cat-item" data-cat="ca-phe">        <span class="ci">☕</span> Cà phê</div>
+        <div class="cat-item" data-cat="nuoc-ep">       <span class="ci">🧃</span> Nước ép</div>
+        <div class="cat-item" data-cat="an-vat">        <span class="ci">🍟</span> Đồ ăn vặt</div>
+        <div class="cat-item" data-cat="banh">          <span class="ci">🍰</span> Bánh ngọt</div>
+        <div class="cat-item" data-cat="sale">          <span class="ci">🔥</span> Khuyến mãi</div>
       </div>
     </div>
 
+    <!-- Lọc giá -->
     <div class="sidebar-card">
       <div class="sidebar-title">Khoảng giá</div>
       <div class="price-options">
-        <label><input type="radio" name="price" checked /> Tất cả</label>
-        <label><input type="radio" name="price" /> Dưới 30.000đ</label>
-        <label><input type="radio" name="price" /> 30.000 – 50.000đ</label>
-        <label><input type="radio" name="price" /> Trên 50.000đ</label>
+        <label><input type="radio" name="price" value="all" checked /> Tất cả</label>
+        <label><input type="radio" name="price" value="lt30" />  Dưới 30.000đ</label>
+        <label><input type="radio" name="price" value="30-50" /> 30.000 – 50.000đ</label>
+        <label><input type="radio" name="price" value="gt50" />  Trên 50.000đ</label>
       </div>
     </div>
 
+    <!-- Topping -->
     <div class="sidebar-card">
       <div class="sidebar-title">Topping</div>
       <div class="check-opts">
@@ -71,168 +81,67 @@
       </div>
     </div>
 
+    <!-- Cart mini -->
     <div class="cart-mini">
       <div class="cart-mini-title">🛒 Giỏ hàng</div>
-      <div class="cart-mini-item"><span>🧋 Trà sữa trân châu ×2</span><span>70.000đ</span></div>
-      <div class="cart-mini-item"><span>🍟 Khoai tây chiên ×1</span><span>25.000đ</span></div>
+      <div class="cart-mini-items">
+        <!-- Render bởi app.js -->
+        <p style="font-size:12px;color:#9999BB;text-align:center;padding:8px 0;">Giỏ hàng trống</p>
+      </div>
       <div class="cart-total">
         <span style="font-size:13px;font-weight:600;">Tổng:</span>
-        <span class="cart-total-price">95.000đ</span>
+        <span class="cart-total-price">0đ</span>
       </div>
       <a href="order.html" class="btn-checkout">Đặt hàng ngay →</a>
     </div>
+
   </aside>
 
-  <!-- MAIN -->
+  <!-- MAIN CONTENT -->
   <main>
+
+    <!-- Search + Sort -->
     <div class="search-sort">
       <div class="search-wrap">
         <span class="search-icon">🔍</span>
         <input type="text" placeholder="Tìm tên món..." />
       </div>
       <select class="sort-sel">
-        <option>Mặc định</option>
-        <option>Giá tăng dần</option>
-        <option>Giá giảm dần</option>
-        <option>Bán chạy nhất</option>
-        <option>Mới nhất</option>
+        <option value="default">Mặc định</option>
+        <option value="price-asc">Giá tăng dần</option>
+        <option value="price-desc">Giá giảm dần</option>
+        <option value="popular">Bán chạy nhất</option>
+        <option value="newest">Mới nhất</option>
       </select>
     </div>
 
+    <!-- Chip filter -->
     <div class="filter-chips">
-      <span class="chip on">🔥 Bán chạy</span>
-      <span class="chip">✨ Mới</span>
-      <span class="chip">🏷️ Khuyến mãi</span>
-      <span class="chip">⭐ Đánh giá cao</span>
+      <span class="chip on" data-filter="hot">🔥 Bán chạy</span>
+      <span class="chip"    data-filter="new">✨ Mới</span>
+      <span class="chip"    data-filter="sale">🏷️ Khuyến mãi</span>
+      <span class="chip"    data-filter="top">⭐ Đánh giá cao</span>
     </div>
 
-    <div class="result-info">Hiển thị 8 / 36 sản phẩm</div>
+    <!-- Result info -->
+    <div class="result-info">Đang tải sản phẩm...</div>
 
-    <div class="prod-grid">
-      <div class="prod-card">
-        <div class="prod-thumb" style="background:#FBEAF0;"><span>🧋</span><span class="prod-badge badge-hot">Hot 🔥</span></div>
-        <div class="prod-body">
-          <div class="prod-name">Trà Sữa Trân Châu</div>
-          <div class="prod-desc">Trân châu đen, sữa tươi, trà đen thơm</div>
-          <div class="prod-foot">
-            <div><div class="prod-price">35.000đ</div><div class="prod-stars"><span>★★★★★</span> (128)</div></div>
-            <button class="add-btn" onclick="addCart(this)">+</button>
-          </div>
-        </div>
-      </div>
-      <div class="prod-card">
-        <div class="prod-thumb" style="background:#E1F5EE;"><span>🍵</span><span class="prod-badge badge-new">Mới ✨</span></div>
-        <div class="prod-body">
-          <div class="prod-name">Trà Đào Cam Sả</div>
-          <div class="prod-desc">Đào tươi, cam vắt, sả thơm mát</div>
-          <div class="prod-foot">
-            <div><div class="prod-price">40.000đ</div><div class="prod-stars"><span>★★★★☆</span> (84)</div></div>
-            <button class="add-btn" onclick="addCart(this)">+</button>
-          </div>
-        </div>
-      </div>
-      <div class="prod-card">
-        <div class="prod-thumb" style="background:#FAEEDA;"><span>☕</span><span class="prod-badge badge-hot">Hot 🔥</span></div>
-        <div class="prod-body">
-          <div class="prod-name">Cà Phê Sữa Đá</div>
-          <div class="prod-desc">Robusta, sữa đặc, đá viên</div>
-          <div class="prod-foot">
-            <div><div class="prod-price">30.000đ</div><div class="prod-stars"><span>★★★★★</span> (210)</div></div>
-            <button class="add-btn" onclick="addCart(this)">+</button>
-          </div>
-        </div>
-      </div>
-      <div class="prod-card">
-        <div class="prod-thumb" style="background:#EEEDFE;"><span>🧃</span></div>
-        <div class="prod-body">
-          <div class="prod-name">Nước Ép Dưa Hấu</div>
-          <div class="prod-desc">Dưa hấu tươi, không đường</div>
-          <div class="prod-foot">
-            <div><div class="prod-price">25.000đ</div><div class="prod-stars"><span>★★★★☆</span> (56)</div></div>
-            <button class="add-btn" onclick="addCart(this)">+</button>
-          </div>
-        </div>
-      </div>
-      <div class="prod-card">
-        <div class="prod-thumb" style="background:#EAF3DE;"><span>🍟</span><span class="prod-badge badge-sale">-20% 🏷️</span></div>
-        <div class="prod-body">
-          <div class="prod-name">Khoai Tây Chiên</div>
-          <div class="prod-desc">Giòn rụm, muối phô mai</div>
-          <div class="prod-foot">
-            <div><div class="prod-price">20.000đ</div><div class="prod-stars"><span>★★★★☆</span> (97)</div></div>
-            <button class="add-btn" onclick="addCart(this)">+</button>
-          </div>
-        </div>
-      </div>
-      <div class="prod-card">
-        <div class="prod-thumb" style="background:#FBEAF0;"><span>🍰</span></div>
-        <div class="prod-body">
-          <div class="prod-name">Bánh Bông Lan Pho Mai</div>
-          <div class="prod-desc">Mềm mịn, cream cheese tươi</div>
-          <div class="prod-foot">
-            <div><div class="prod-price">22.000đ</div><div class="prod-stars"><span>★★★★★</span> (73)</div></div>
-            <button class="add-btn" onclick="addCart(this)">+</button>
-          </div>
-        </div>
-      </div>
-      <div class="prod-card">
-        <div class="prod-thumb" style="background:#E1F5EE;"><span>🧋</span><span class="prod-badge badge-new">Mới ✨</span></div>
-        <div class="prod-body">
-          <div class="prod-name">Matcha Latte</div>
-          <div class="prod-desc">Bột matcha Nhật, sữa tươi, đường nâu</div>
-          <div class="prod-foot">
-            <div><div class="prod-price">45.000đ</div><div class="prod-stars"><span>★★★★★</span> (62)</div></div>
-            <button class="add-btn" onclick="addCart(this)">+</button>
-          </div>
-        </div>
-      </div>
-      <div class="prod-card">
-        <div class="prod-thumb" style="background:#FAEEDA;"><span>🍢</span><span class="prod-badge badge-sale">-15% 🏷️</span></div>
-        <div class="prod-body">
-          <div class="prod-name">Bánh Tráng Nướng</div>
-          <div class="prod-desc">Hành mỡ, ruốc, trứng cút</div>
-          <div class="prod-foot">
-            <div><div class="prod-price">18.000đ</div><div class="prod-stars"><span>★★★★☆</span> (145)</div></div>
-            <button class="add-btn" onclick="addCart(this)">+</button>
-          </div>
-        </div>
-      </div>
-    </div>
+    <!-- Product grid — render bởi app.js -->
+    <div class="prod-grid"></div>
 
-    <div class="pagination">
-      <button class="page-btn">‹</button>
-      <button class="page-btn active">1</button>
-      <button class="page-btn">2</button>
-      <button class="page-btn">3</button>
-      <button class="page-btn">4</button>
-      <button class="page-btn">›</button>
-    </div>
+    <!-- Pagination — render bởi app.js -->
+    <div class="pagination"></div>
+
   </main>
 </div>
 
-<footer><span>🧋 BobaViet</span> · © 2025 · 123 Lê Lợi, Q.1, HCM · 📞 0901 234 567</footer>
+<!-- ── FOOTER ─────────────────────────────── -->
+<footer>
+  <div class="footer-simple">
+    <span>🧋 BobaViet</span> · © 2025 · 123 Lê Lợi, Q.1, HCM · 📞 0901 234 567
+  </div>
+</footer>
 
-<script>
-  document.querySelectorAll('.cat-item').forEach(item => {
-    item.addEventListener('click', () => {
-      document.querySelectorAll('.cat-item').forEach(c => c.classList.remove('active'));
-      item.classList.add('active');
-    });
-  });
-  document.querySelectorAll('.chip').forEach(chip => {
-    chip.addEventListener('click', () => chip.classList.toggle('on'));
-  });
-  document.querySelectorAll('.page-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('.page-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-    });
-  });
-  function addCart(btn) {
-    btn.textContent = '✓';
-    btn.style.background = 'var(--teal)';
-    setTimeout(() => { btn.textContent = '+'; btn.style.background = 'var(--pink)'; }, 1200);
-  }
-</script>
+<script src="app.js"></script>
 </body>
 </html>

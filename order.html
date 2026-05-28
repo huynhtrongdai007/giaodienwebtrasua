@@ -1,28 +1,29 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Đặt Hàng – BobaViet</title>
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Đặt Hàng – BobaViet</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body class="page-order">
+<body>
 
+<!-- ── NAVBAR ─────────────────────────────── -->
 <nav>
-  <div class="nav-logo">BobaViet</div>
+  <div class="nav-logo">🧋 BobaViet</div>
   <div class="nav-links">
     <a href="index.html">Trang chủ</a>
     <a href="menu.html">Thực đơn</a>
     <a href="order.html" class="active">Đặt hàng</a>
     <a href="contact.html">Liên hệ</a>
   </div>
-  <div class="nav-user">👤 Nguyễn Văn A</div>
+  <div class="nav-user" id="nav-user">👤 Đang tải...</div>
 </nav>
 
-<!-- PROGRESS -->
+<!-- ── PROGRESS BAR ────────────────────────── -->
 <div class="progress-bar">
   <div class="steps">
     <div class="step done">
@@ -47,10 +48,13 @@
   </div>
 </div>
 
+<!-- ── LAYOUT ─────────────────────────────── -->
 <div class="order-layout">
-  <!-- LEFT COLUMN -->
+
+  <!-- CỘT TRÁI: Form thông tin -->
   <div>
-    <!-- CUSTOMER INFO -->
+
+    <!-- 1. Người nhận -->
     <div class="card">
       <div class="card-title">1. Thông tin người nhận</div>
       <div class="field-group">
@@ -58,14 +62,14 @@
           <label>Họ và tên *</label>
           <div class="input-wrap">
             <span class="ico">👤</span>
-            <input type="text" placeholder="Nguyễn Văn A" value="Nguyễn Văn A" />
+            <input type="text" id="recipient-name" placeholder="Nguyễn Văn A" />
           </div>
         </div>
         <div class="field">
           <label>Số điện thoại *</label>
           <div class="input-wrap">
             <span class="ico">📞</span>
-            <input type="text" placeholder="0901 234 567" value="0901 234 567" />
+            <input type="text" id="recipient-phone" placeholder="0901 234 567" />
           </div>
         </div>
       </div>
@@ -73,19 +77,19 @@
         <label>Email</label>
         <div class="input-wrap">
           <span class="ico">✉️</span>
-          <input type="email" placeholder="email@example.com" value="nguyenvana@gmail.com" />
+          <input type="email" id="recipient-email" placeholder="email@example.com" />
         </div>
       </div>
     </div>
 
-    <!-- ADDRESS -->
+    <!-- 2. Địa chỉ -->
     <div class="card">
       <div class="card-title">2. Địa chỉ giao hàng</div>
       <div class="field">
         <label>Địa chỉ cụ thể *</label>
         <div class="input-wrap">
           <span class="ico">📍</span>
-          <input type="text" placeholder="Số nhà, tên đường, tòa nhà..." />
+          <input type="text" id="delivery-addr" placeholder="Số nhà, tên đường, tòa nhà..." />
         </div>
       </div>
       <div class="field-group">
@@ -93,7 +97,7 @@
           <label>Quận / Huyện *</label>
           <div class="input-wrap">
             <span class="ico">🏙️</span>
-            <select>
+            <select id="delivery-district">
               <option>Quận 1</option>
               <option>Quận 3</option>
               <option>Quận 5</option>
@@ -107,7 +111,7 @@
           <label>Tỉnh / Thành phố *</label>
           <div class="input-wrap">
             <span class="ico">🗺️</span>
-            <select>
+            <select id="delivery-city">
               <option>TP. Hồ Chí Minh</option>
               <option>Hà Nội</option>
               <option>Đà Nẵng</option>
@@ -122,24 +126,24 @@
           <span>Khu vực Quận 1 · Tài xế đang sẵn sàng</span>
         </div>
       </div>
-      <div class="field" style="margin-bottom:0;">
+      <div class="field" style="margin-bottom:0;margin-top:12px;">
         <label>Ghi chú cho tài xế</label>
-        <textarea placeholder="VD: Gọi điện trước khi tới, giao tại sảnh tòa nhà..."></textarea>
+        <textarea id="delivery-note" placeholder="VD: Gọi điện trước khi tới, giao tại sảnh tòa nhà..."></textarea>
       </div>
     </div>
 
-    <!-- TIME -->
+    <!-- 3. Thời gian nhận -->
     <div class="card">
       <div class="card-title">3. Thời gian nhận hàng</div>
-      <div class="method-grid">
-        <div class="method-card selected" onclick="selectMethod(this, 'time')">
+      <div class="method-grid time-methods">
+        <div class="method-card selected" onclick="selectMethod(this,'time')">
           <div class="method-icon">⚡</div>
           <div>
             <div class="method-name">Giao ngay</div>
             <div class="method-sub">30 – 45 phút</div>
           </div>
         </div>
-        <div class="method-card" onclick="selectMethod(this, 'time')">
+        <div class="method-card" onclick="selectMethod(this,'time')">
           <div class="method-icon">📅</div>
           <div>
             <div class="method-name">Đặt lịch trước</div>
@@ -149,7 +153,7 @@
       </div>
     </div>
 
-    <!-- PAYMENT -->
+    <!-- 4. Thanh toán -->
     <div class="card">
       <div class="card-title">4. Phương thức thanh toán</div>
       <div class="pay-option selected" onclick="selectPay(this)">
@@ -175,131 +179,71 @@
         </div>
       </div>
     </div>
+
   </div>
 
-  <!-- RIGHT: ORDER SUMMARY -->
+  <!-- CỘT PHẢI: Tóm tắt đơn hàng -->
   <div class="summary-card">
     <div class="summary-header">
       <h3>🛒 Đơn hàng của bạn</h3>
     </div>
     <div class="summary-body">
-      <div class="order-item">
-        <div class="item-thumb" style="background:#FBEAF0;">🧋</div>
-        <div class="item-info">
-          <div class="item-name">Trà Sữa Trân Châu</div>
-          <div class="item-sub">Size L · Ít đường · Trân châu đen</div>
-        </div>
-        <div class="item-qty">
-          <button class="qty-btn" onclick="changeQty(this,-1)">−</button>
-          <span class="qty-num">2</span>
-          <button class="qty-btn" onclick="changeQty(this,1)">+</button>
-        </div>
-        <div class="item-price">70.000đ</div>
-      </div>
-      <div class="order-item">
-        <div class="item-thumb" style="background:#EAF3DE;">🍟</div>
-        <div class="item-info">
-          <div class="item-name">Khoai Tây Chiên</div>
-          <div class="item-sub">Phô mai · Sốt tương cà</div>
-        </div>
-        <div class="item-qty">
-          <button class="qty-btn" onclick="changeQty(this,-1)">−</button>
-          <span class="qty-num">1</span>
-          <button class="qty-btn" onclick="changeQty(this,1)">+</button>
-        </div>
-        <div class="item-price">25.000đ</div>
-      </div>
-      <div class="order-item">
-        <div class="item-thumb" style="background:#FAEEDA;">🍰</div>
-        <div class="item-info">
-          <div class="item-name">Bánh Bông Lan Pho Mai</div>
-          <div class="item-sub">Hộp 4 cái</div>
-        </div>
-        <div class="item-qty">
-          <button class="qty-btn" onclick="changeQty(this,-1)">−</button>
-          <span class="qty-num">1</span>
-          <button class="qty-btn" onclick="changeQty(this,1)">+</button>
-        </div>
-        <div class="item-price">22.000đ</div>
-      </div>
 
-      <!-- VOUCHER -->
+      <!-- Danh sách sản phẩm — render bởi app.js -->
+      <div id="order-items-list"></div>
+
+      <!-- Nhập voucher -->
       <div class="voucher-row">
-        <input type="text" placeholder="Nhập mã giảm giá..." id="voucher-input" />
+        <input type="text" id="voucher-input" placeholder="Nhập mã giảm giá..." />
         <button class="btn-apply" onclick="applyVoucher()">Áp dụng</button>
       </div>
-      <div class="voucher-success" id="voucher-ok" style="display:none;">
-        🏷️ Mã <strong>BOBA20</strong> – Giảm 20.000đ đã được áp dụng!
+      <div id="voucher-ok" class="alert-box alert-success" style="display:none;">
+        <span></span>
+      </div>
+      <div id="voucher-err" class="alert-box alert-error" style="display:none;">
+        ❌ Mã không hợp lệ! Thử: BOBA20, FREESHIP, NEWUSER
       </div>
 
-      <!-- TOTALS -->
+      <!-- Tổng tiền -->
       <div class="totals">
-        <div class="total-row"><span>Tạm tính (3 món)</span><span>117.000đ</span></div>
-        <div class="total-row"><span>Phí giao hàng</span><span>15.000đ</span></div>
-        <div class="total-row discount" id="discount-row" style="display:none;"><span>Giảm giá (BOBA20)</span><span>− 20.000đ</span></div>
+        <div class="total-row"><span>Tạm tính</span><span id="subtotal">0đ</span></div>
+        <div class="total-row"><span>Phí giao hàng</span><span id="ship-fee">15.000đ</span></div>
+        <div class="total-row discount" id="discount-row" style="display:none;">
+          <span>Giảm giá</span><span id="discount-amount">− 0đ</span>
+        </div>
       </div>
+      <div id="freeship-note" style="display:none;font-size:12px;color:#D97706;margin:6px 0;"></div>
       <div class="total-final">
         <div class="total-final-label">Tổng thanh toán</div>
-        <div class="total-final-price" id="total-price">132.000đ</div>
+        <div class="total-final-price" id="total-price">0đ</div>
       </div>
 
       <button class="btn-submit" onclick="submitOrder()">✓ Xác nhận đặt hàng</button>
 
-      <div class="success-box" id="success-box">
-        <strong>🎉 Đặt hàng thành công!</strong>
-        <span>Mã đơn: #BV2025051901 · Tài xế sẽ đến trong 30 – 45 phút.</span>
+      <div class="success-box alert-box alert-success" id="success-box" style="margin-top:12px;">
+        <strong>🎉 Đặt hàng thành công!</strong><br>
+        Mã đơn: <strong id="order-id">#BV--------</strong> · Tài xế sẽ đến trong 30–45 phút.
       </div>
 
+      <!-- Chính sách -->
       <div class="policy-box">
         <div class="policy-item"><span class="policy-icon">🚚</span><span>Miễn phí ship đơn từ 100.000đ</span></div>
         <div class="policy-item"><span class="policy-icon">🔄</span><span>Hoàn tiền 100% nếu sản phẩm không đúng</span></div>
         <div class="policy-item"><span class="policy-icon">🎧</span><span>Hỗ trợ 24/7 – Zalo: 0901 234 567</span></div>
       </div>
+
     </div>
   </div>
+
 </div>
 
-<footer><span>🧋 BobaViet</span> · © 2025 · 123 Lê Lợi, Q.1, HCM · 📞 0901 234 567</footer>
+<!-- ── FOOTER ─────────────────────────────── -->
+<footer>
+  <div class="footer-simple">
+    <span>🧋 BobaViet</span> · © 2025 · 123 Lê Lợi, Q.1, HCM · 📞 0901 234 567
+  </div>
+</footer>
 
-<script>
-  function selectMethod(el, group) {
-    el.closest('.method-grid').querySelectorAll('.method-card').forEach(c => c.classList.remove('selected'));
-    el.classList.add('selected');
-  }
-  function selectPay(el) {
-    document.querySelectorAll('.pay-option').forEach(c => {
-      c.classList.remove('selected');
-      const chk = c.querySelector('.pay-check');
-      if (chk) chk.remove();
-    });
-    el.classList.add('selected');
-    const chk = document.createElement('div');
-    chk.className = 'pay-check';
-    chk.textContent = '✓';
-    el.appendChild(chk);
-  }
-  function changeQty(btn, delta) {
-    const row = btn.closest('.item-qty');
-    const num = row.querySelector('.qty-num');
-    let v = parseInt(num.textContent) + delta;
-    if (v < 1) v = 1;
-    num.textContent = v;
-  }
-  function applyVoucher() {
-    const val = document.getElementById('voucher-input').value.trim().toUpperCase();
-    if (val === 'BOBA20') {
-      document.getElementById('voucher-ok').style.display = 'flex';
-      document.getElementById('discount-row').style.display = 'flex';
-      document.getElementById('total-price').textContent = '112.000đ';
-    } else {
-      alert('Mã không hợp lệ. Thử mã BOBA20 nhé!');
-    }
-  }
-  function submitOrder() {
-    const box = document.getElementById('success-box');
-    box.style.display = 'block';
-    box.scrollIntoView({ behavior: 'smooth', block: 'center' });
-  }
-</script>
+<script src="app.js"></script>
 </body>
 </html>
